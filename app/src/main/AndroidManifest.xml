@@ -21,9 +21,16 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sec_Activity">
+        <activity
+            android:name=".Sec_Activity"
+            android:theme="@style/AppTheme">
+
 
         </activity>
+        <activity android:name=".TemActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
