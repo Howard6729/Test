@@ -77,6 +77,8 @@ public class MainActivity extends Activity {
 //            pd.setMessage("change");
 //            pd.setCancelable(true);
 //            pd.show();
+            Intent intent=new Intent(MainActivity.this,TemActivity.class);
+            startActivity(intent);
         }
     };
     View.OnClickListener bc3=new View.OnClickListener() {
