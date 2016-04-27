@@ -2,11 +2,18 @@ package com.example.howard.demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends Activity {
 
@@ -16,6 +23,11 @@ public class MainActivity extends Activity {
     private EditText edit;
     private ProgressBar pb;
     private static  String TAG = "haoyang";
+    private LocalBroadcastManager lb;
+    private IntentFilter ifer;
+    private BufferedWriter bf;
+    private FileOutputStream fos;
+
 
     @Override
 
@@ -30,6 +42,13 @@ public class MainActivity extends Activity {
         btn_3.setOnClickListener(bc3);
         edit=(EditText)findViewById(R.id.m_edit);
         pb=(ProgressBar)findViewById(R.id.m_pb);
+        try {
+            fos=openFileOutput("data",MODE_APPEND);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bf = new BufferedWriter(new OutputStreamWriter(fos));
+
     }
 
     View.OnClickListener bc = new View.OnClickListener() {
@@ -86,6 +105,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
 //            Intent tmp=new Intent(MainActivity.this,TemActivity.class);
 //            startActivity(tmp);
+
 
         }
     };
